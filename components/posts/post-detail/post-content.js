@@ -1,10 +1,8 @@
-import classes from './post-content.module.css'
-import PostHeader from './post-header';
-import { ReactMarkdown } from 'react-markdown/lib/react-markdown';
+import ReactMarkdown from "react-markdown";
+import classes from "./post-content.module.css";
+import PostHeader from "./post-header";
 
-
-
-// const post = 
+// const post =
 //   {
 //     slug: "getting-started-nextjs",
 //     title: "getting-started",
@@ -16,8 +14,7 @@ import { ReactMarkdown } from 'react-markdown/lib/react-markdown';
 
 function PostContent(props) {
   const { post } = props;
-  console.log(post)
-    const imagePath = `/images/posts/${post.slug}/${post.image}`
+  const imagePath = `/images/posts/${post.slug}/${post.image}`;
   return (
     <article className={classes.content}>
       <PostHeader title={post.title} image={imagePath} />

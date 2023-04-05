@@ -1,5 +1,5 @@
 ---
-slug: "getting-started-nextjs"
+slug: "getting-started-with-nextjs"
 title: 'Getting Started with NextJS'
 date: '03/31/2022'
 image: 'getting-started-nextjs.png'
