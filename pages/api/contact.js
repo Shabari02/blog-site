@@ -16,12 +16,13 @@ async function handler(req, res) {
     }
 
     //todo Store it in a database
+    let client;
     const newMessage = {
       email,
       name,
       message,
     };
-    let client;
+    
     try {
       client = await MongoClient.connect(
         "mongodb+srv://lkshabari:lkts02@cluster0.cy2qnsi.mongodb.net/?retryWrites=true&w=majority"
