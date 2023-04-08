@@ -1,9 +1,17 @@
-
+import Head from "next/head";
 import PostContent from "../../components/posts/post-detail/post-content";
 import { getPostData, getPostFiles } from "../../lib/post-util";
 
 function PostDetailPage(props) {
-  return <PostContent post={props.post} />;
+  return (
+    <>
+      <Head>
+        <title>{props.post.title}</title>
+        <meta name="description" content={props.post.excerpt} />
+      </Head>
+      <PostContent post={props.post} />
+    </>
+  );
 }
 
 export function getStaticProps(context) {
@@ -19,11 +27,9 @@ export function getStaticProps(context) {
 }
 export function getStaticPaths() {
   const postFilenames = getPostFiles();
-  const slugs = postFilenames.map((fileName) => fileName.replace(/\.md$/,''));
+  const slugs = postFilenames.map((fileName) => fileName.replace(/\.md$/, ""));
   return {
-    paths: slugs.map((slug) => (
-        { params: { slug: slug } 
-    })),
+    paths: slugs.map((slug) => ({ params: { slug: slug } })),
     fallback: false,
   };
 }
